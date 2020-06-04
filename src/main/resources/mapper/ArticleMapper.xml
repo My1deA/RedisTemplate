@@ -2,6 +2,52 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="com.example.demo.mapper.AriticleMapper">
+    <!--void addArticle(Article article);-->
+    <insert id="addArticle" parameterType="com.example.demo.domain.Article">
+        insert into article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="content !=null and content !=''">
+                content,
+            </if>
+            <if test="praise != null and praise !=''">
+                praise,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="content !=null and content !=''">
+                #{content},
+            </if>
+            <if test="praise !=null and praise !=''">
+                #{praise},
+            </if>
+        </trim>
+    </insert>
+
+    <!--void delArticleById(Integer id);-->
+    <delete id="delArticleById" parameterType="java.lang.Integer">
+        delete from article where id = #{id}
+    </delete>
+
+    <!--Article findArticleById(Integer id);-->
+    <select id="findArticleById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Article">
+        select * from article where id = #{id}
+    </select>
+
+    <!--void saveArticle(Article article);-->
+    <update id="saveArticle" parameterType="com.example.demo.domain.Article">
+        update article
+        <trim prefix="set " suffixOverrides=",">
+            <if test="content != null and content !=''">
+                content=#{content},
+            </if>
+            <if test="praise !=null and praise !=''">
+                praise=#{praise},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+
 
 </mapper>

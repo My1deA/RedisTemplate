@@ -7,7 +7,7 @@ public class Praise implements Serializable {
     private Integer id;
     private Integer userId;
     private Integer articleId;
-    private Integer ispraise;
+    private Integer isPraise;
 
     public Integer getId() {
         return id;
@@ -34,11 +34,11 @@ public class Praise implements Serializable {
     }
 
     public Integer getIspraise() {
-        return ispraise;
+        return isPraise;
     }
 
-    public void setIspraise(Integer ispraise) {
-        this.ispraise = ispraise;
+    public void setIspraise(Integer isPraise) {
+        this.isPraise = isPraise;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Praise implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", articleId=" + articleId +
-                ", ispraise=" + ispraise +
+                ", ispraise=" + isPraise +
                 '}';
     }
 }

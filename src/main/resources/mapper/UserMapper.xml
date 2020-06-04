@@ -2,6 +2,58 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
-    
+<mapper namespace="com.example.demo.mapper.UserMapper">
+
+    <!--void addUser(User user);-->
+    <insert id="addUser" parameterType="com.example.demo.domain.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username !=null and username !=''">
+                username,
+            </if>
+            <if test="password !=null and password !=''">
+                password,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="username !=null and username !=''">
+                #{username},
+            </if>
+            <if test="password !=null and password !=''">
+                #{password},
+            </if>
+        </trim>
+    </insert>
+
+    <!--void delUserById(Integer id);-->
+    <delete id="delUserById" parameterType="java.lang.Integer">
+        delete from user where id =#{id}
+    </delete>
+
+    <!--User findUserById(Integer id);-->
+    <select id="findUserById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+
+    <!--User findUserByUsername(String username);-->
+    <select id="findUserById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.User">
+        select * from user where id = #{id}
+    </select>
+
+
+    <!--void saveUser(User user);-->
+    <update id="saveUser" parameterType="com.example.demo.domain.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username !=null and username !=''">
+                username=#{username},
+            </if>
+            <if test="password !=null and password !=''">
+                password=#{password},
+            </if>
+        </trim>
+        where  id = #{id}
+    </update>
+
 </mapper>

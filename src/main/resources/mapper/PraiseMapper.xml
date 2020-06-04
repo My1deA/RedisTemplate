@@ -2,6 +2,61 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
-    
+<mapper namespace="com.example.demo.mapper.PraiseMapper">
+    <!--void addPraise(Praise praise);-->
+    <insert id="addPraise"  parameterType="com.example.demo.domain.Praise">
+        insert into praise
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId !=null and userId !=''">
+                user_id,
+            </if>
+            <if test="articleId !=null and articleId !=''">
+                article_id,
+            </if>
+            <if test="isPraise !=null and isPraise !=''">
+                ispraise,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="userId !=null and userId !=''">
+                #{userId},
+            </if>
+            <if test="articleId !=null and articleId !=''">
+                #{articleId},
+            </if>
+            <if test="isPraise !=null and isPraise !=''">
+                #{isPraise},
+            </if>
+        </trim>
+    </insert>
+
+    <!--void delPraiseById(Integer id);-->
+    <delete id="delPraiseById" parameterType="java.lang.Integer">
+        delete from praise where id =#{id}
+    </delete>
+
+    <!--Praise findPraiseById(Integer id);-->
+    <select id="findPraiseById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Praise">
+        select * from praise where id = #{id}
+    </select>
+
+
+    <!--void savePraise(Praise praise);-->
+    <update id="savePraise" parameterType="com.example.demo.domain.Praise">
+        update praise
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userId !=null and userId !=''">
+               user_id = #{userId},
+            </if>
+            <if test="articleId !=null and articleId !=''">
+               article_id = #{articleId},
+            </if>
+            <if test="isPraise !=null and isPraise !=''">
+                ispraise = #{isPraise},
+            </if>
+        </trim>
+        where  id = #{id}
+    </update>
+
+
 </mapper>
