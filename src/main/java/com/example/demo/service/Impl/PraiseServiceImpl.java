@@ -22,8 +22,8 @@ public class PraiseServiceImpl implements PraiseService {
     }
 
     @Override
-    public Praise findPraiseById(Integer id) {
-        return praiseService.findPraiseById(id);
+    public Praise getPraiseById(Integer id) {
+        return praiseService.getPraiseById(id);
     }
 
     @Override

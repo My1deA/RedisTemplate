@@ -35,8 +35,8 @@
         delete from praise where id =#{id}
     </delete>
 
-    <!--Praise findPraiseById(Integer id);-->
-    <select id="findPraiseById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Praise">
+    <!--Praise getPraiseById(Integer id);-->
+    <select id="getPraiseById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Praise">
         select * from praise where id = #{id}
     </select>
 

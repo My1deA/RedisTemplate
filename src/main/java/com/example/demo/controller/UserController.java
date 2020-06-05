@@ -27,14 +27,14 @@ public class UserController {
     }
 
     @GetMapping("/get/{id}")
-    public User findUserById(@PathVariable("id") Integer id){
-        User user=userService.findUserById(id);
+    public User getUserById(@PathVariable("id") Integer id){
+        User user=userService.getUserById(id);
         return user;
     }
 
     @GetMapping("/get")
-    User findUserByUsername(@RequestParam("username") String username){
-        User user=userService.findUserByUsername(username);
+    User getUserByUsername(@RequestParam("username") String username){
+        User user=userService.getUserByUsername(username);
         return user;
     }
 

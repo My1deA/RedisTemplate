@@ -1,6 +1,6 @@
-package com.example.demo.util;
+package com.example.demo.deprecated.util;
 
-import com.example.demo.constants.Status;
+import com.example.demo.deprecated.constant.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundListOperations;
 import org.springframework.data.redis.core.RedisTemplate;

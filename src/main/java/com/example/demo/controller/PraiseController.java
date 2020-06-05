@@ -25,8 +25,8 @@ public class PraiseController {
     }
 
     @GetMapping("/get/{id}")
-    public Praise findPraiseById(@PathVariable("id") Integer id){
-        Praise praise=praiseService.findPraiseById(id);
+    public Praise getPraiseById(@PathVariable("id") Integer id){
+        Praise praise=praiseService.getPraiseById(id);
         return praise;
     }
 

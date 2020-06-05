@@ -29,10 +29,12 @@
         delete from article where id = #{id}
     </delete>
 
-    <!--Article findArticleById(Integer id);-->
-    <select id="findArticleById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Article">
+    <!--Article getArticleById(Integer id);-->
+    <select id="getArticleById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Article">
         select * from article where id = #{id}
     </select>
+
+
 
     <!--void saveArticle(Article article);-->
     <update id="saveArticle" parameterType="com.example.demo.domain.Article">

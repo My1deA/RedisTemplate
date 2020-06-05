@@ -2,14 +2,17 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Article;
 
-import java.util.List;
 
 public interface ArticleService {
 
     void addArticle(Article article);
     void delArticleById(Integer id);
-    Article findArticleById(Integer id);
-    List<Article> getArticle();
+    Article getArticleById(Integer id);
     void saveArticle(Article article);
+
+    //点赞
+    void praiseArticle(Integer id);
+    //财
+    void disPraiseArticle(Integer id);
 
 }

@@ -15,6 +15,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+
     @PostMapping("/add")
     public String  addArticle(Article article){
         articleService.addArticle(article);
@@ -28,28 +29,9 @@ public class ArticleController {
     }
 
     @GetMapping("/get/{id}")
-    public Article findArticleById(@PathVariable("id") Integer id){
-        Article article=articleService.findArticleById(id);
+    public Article getArticleById(@PathVariable("id") Integer id){
+        Article article=articleService.getArticleById(id);
         return article;
-    }
-
-    //测试
-    @GetMapping("/get/list")
-    public List<Article> findArticle(){
-
-    }
-
-
-    @PutMapping("/praise/{id}")
-    public String  praiseArticle(Integer id){
-
-        return "praise article success";
-    }
-
-    @PutMapping("/dispraise/{id}")
-    public String  praiseArticle(Integer id){
-
-        return "dispraise article success";
     }
 
     @PutMapping("/save")
@@ -57,4 +39,41 @@ public class ArticleController {
         articleService.saveArticle(article);
         return "save article success";
     }
+
+    //点赞
+    @PutMapping("/praise/{id}")
+    public String  praiseArticle(@PathVariable("id") Integer id){
+        articleService.praiseArticle(id);
+        return "praise article success";
+    }
+
+    //踩
+    @PutMapping("/dispraise/{id}")
+    public String  disPraiseArticle(@PathVariable("id")  Integer id){
+        articleService.disPraiseArticle(id);
+        return "dispraise article success";
+    }
+
+ /*   @Autowired
+    private RedisService redisService;
+
+    @GetMapping("/get/list")
+    public List<Article> getArticleList(){
+        return redisService.getArticleList();
+    }
+
+
+    @PutMapping("/praise/{id}")
+    public String  praiseArticle(@PathVariable("id") Integer id){
+        redisService.praiseArticle(id);
+        return "praise article success";
+    }
+
+    @PutMapping("/dispraise/{id}")
+    public String  disPraiseArticle(@PathVariable("id")  Integer id){
+        redisService.disPraiseArticle(id);
+        return "dispraise article success";
+    }*/
+
+
 }

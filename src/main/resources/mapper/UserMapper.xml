@@ -30,14 +30,14 @@
         delete from user where id =#{id}
     </delete>
 
-    <!--User findUserById(Integer id);-->
-    <select id="findUserById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.User">
+    <!--User getUserById(Integer id);-->
+    <select id="getUserById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.User">
         select * from user where id = #{id}
     </select>
 
 
-    <!--User findUserByUsername(String username);-->
-    <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.example.demo.domain.User">
+    <!--User getUserByUsername(String username);-->
+    <select id="getUserByUsername" parameterType="java.lang.String" resultType="com.example.demo.domain.User">
         select * from user where id = #{id}
     </select>
 

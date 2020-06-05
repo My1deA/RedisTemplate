@@ -12,8 +12,9 @@ public interface ArticleMapper {
 
     void addArticle(Article article);
     void delArticleById(Integer id);
-    Article findArticleById(Integer id);
-    List<Article> getArticle();
+    Article getArticleById(Integer id);
     void saveArticle(Article article);
+
+
 
 }

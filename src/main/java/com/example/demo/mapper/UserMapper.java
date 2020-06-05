@@ -11,7 +11,7 @@ public interface UserMapper {
 
     void addUser(User user);
     void delUserById(Integer id);
-    User findUserById(Integer id);
-    User findUserByUsername(String username);
+    User getUserById(Integer id);
+    User getUserByUsername(String username);
     void saveUser(User user);
 }
