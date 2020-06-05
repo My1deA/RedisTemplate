@@ -31,6 +31,7 @@ public class Schedule {
     @Autowired
     private ArticleService articleService;
 
+    //crontab 和linux 多了个秒
     @Scheduled(cron = "0 * * * * *")
     public void refreshMysql(){
         List<Article> articleList=redisService.getArticleList();
