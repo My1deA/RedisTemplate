@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.Article;
 import com.example.demo.service.ArticleService;
+import com.example.demo.service.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/article")
@@ -30,6 +33,24 @@ public class ArticleController {
         return article;
     }
 
+    //测试
+    @GetMapping("/get/list")
+    public List<Article> findArticle(){
+
+    }
+
+
+    @PutMapping("/praise/{id}")
+    public String  praiseArticle(Integer id){
+
+        return "praise article success";
+    }
+
+    @PutMapping("/dispraise/{id}")
+    public String  praiseArticle(Integer id){
+
+        return "dispraise article success";
+    }
 
     @PutMapping("/save")
     public String  saveArticle(@RequestBody  Article article){

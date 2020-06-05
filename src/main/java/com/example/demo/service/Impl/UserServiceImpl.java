@@ -39,12 +39,12 @@ public class UserServiceImpl implements UserService {
         // 但我目前用来处理登录验证密码
         User user=new User();
         if(redisTemplate.hasKey(username)){
-            System.out.println("redis get");
+            System.out.println("redis string get");
             String password= (String) redisTemplate.opsForValue().get(username);
             user.setPassword(password);
             user.setUsername(username);
         }else{
-            System.out.println("mapper get");
+            System.out.println("mysql string get");
             user=userMapper.findUserByUsername(username);
             redisTemplate.opsForValue().set(user.getUsername(),user.getPassword());
             redisTemplate.expire(user.getUsername(),10, TimeUnit.SECONDS);
