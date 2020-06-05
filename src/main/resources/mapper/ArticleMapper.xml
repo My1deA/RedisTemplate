@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper.AriticleMapper">
+<mapper namespace="com.example.demo.mapper.ArticleMapper">
     <!--void addArticle(Article article);-->
     <insert id="addArticle" parameterType="com.example.demo.domain.Article">
         insert into article

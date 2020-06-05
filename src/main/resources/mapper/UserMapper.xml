@@ -37,7 +37,7 @@
 
 
     <!--User findUserByUsername(String username);-->
-    <select id="findUserById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.User">
+    <select id="findUserByUsername" parameterType="java.lang.String" resultType="com.example.demo.domain.User">
         select * from user where id = #{id}
     </select>
 

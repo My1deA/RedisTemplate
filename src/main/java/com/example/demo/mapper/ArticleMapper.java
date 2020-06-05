@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Mapper
-public interface AriticleMapper {
+public interface ArticleMapper {
 
     void addArticle(Article article);
     void delArticleById(Integer id);

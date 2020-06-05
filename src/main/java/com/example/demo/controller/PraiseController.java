@@ -1,11 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Article;
 import com.example.demo.domain.Praise;
-import com.example.demo.domain.User;
-import com.example.demo.service.ArticleService;
 import com.example.demo.service.PraiseService;
-import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +32,7 @@ public class PraiseController {
 
 
     @PutMapping("/save")
-    public String  savePraise(Praise praise){
+    public String  savePraise(@RequestBody Praise praise){
         praiseService.savePraise(praise);
         return "save praise success";
     }

@@ -4,6 +4,7 @@ import com.example.demo.domain.User;
 import com.example.demo.result.Result;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @PutMapping("/save")
-    public String  saveUser(User user){
+    public String  saveUser(@RequestBody  User user){
         userService.saveUser(user);
         return "save user success";
     }

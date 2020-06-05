@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.Article;
-import com.example.demo.domain.User;
 import com.example.demo.service.ArticleService;
-import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +32,7 @@ public class ArticleController {
 
 
     @PutMapping("/save")
-    public String  saveArticle(Article article){
+    public String  saveArticle(@RequestBody  Article article){
         articleService.saveArticle(article);
         return "save article success";
     }
