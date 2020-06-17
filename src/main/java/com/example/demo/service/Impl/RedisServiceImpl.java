@@ -53,6 +53,7 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void addArticle(Article article) {
         redisTemplate.opsForHash().put(RedisKeyUtil.ARTICLE_KEY_MAP,article.getId(),article);
+
     }
 
     @Override
